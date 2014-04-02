@@ -1,13 +1,6 @@
 <h1><%= @contact.name %></h1>
 
-<p><a href="/contacts/<%= @contact.id %>/edit">Edit Name</a></p>
-<p><a href="/contacts/<%= @contact.id %>"
-  data-confirm="You sure?"
-  data-method="delete"
-  rel="nofollow">Delete Contact</a></p>
-
-
-<p>Phones:</p>
+<p>Phone numbers:</p>
 
 <ul>
   <% @contact.phones.each do |phone| %>
@@ -21,6 +14,29 @@
     </li>
   <% end %>
 </ul>
-<a href="/contacts/<%= @contact.id %>/phones/new">Add phone</a>
+<a href="/contacts/<%= @contact.id %>/phones/new">Add phone number</a>
+
+
+<p>Email addresses:</p>
+
+<ul>
+  <% @contact.emails.each do |email| %>
+    <li>
+      <%= email.address %>
+      <a href="/contacts/<%= @contact.id %>/emails/<%= email.id %>/edit">Edit</a>
+      <a href="/contacts/<%= @contact.id %>/emails/<%= email.id %>"
+         data-confirm="You sure?"
+         data-method="delete"
+         rel="nofollow">Delete</a>
+    </li>
+  <% end %>
+</ul>
+<a href="/contacts/<%= @contact.id %>/emails/new">Add email address</a>
+
+<p><a href="/contacts/<%= @contact.id %>/edit">Edit Name</a></p>
+<p><a href="/contacts/<%= @contact.id %>"
+  data-confirm="You sure?"
+  data-method="delete"
+  rel="nofollow">Delete Contact</a></p>
 
 <p><a href="/contacts">Return to the contact listing</a></p>
