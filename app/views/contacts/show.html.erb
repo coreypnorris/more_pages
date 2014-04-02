@@ -1,0 +1,26 @@
+<h1><%= @contact.name %></h1>
+
+<p><a href="/contacts/<%= @contact.id %>/edit">Edit Name</a></p>
+<p><a href="/contacts/<%= @contact.id %>"
+  data-confirm="You sure?"
+  data-method="delete"
+  rel="nofollow">Delete Contact</a></p>
+
+
+<p>Phones:</p>
+
+<ul>
+  <% @contact.phones.each do |phone| %>
+    <li>
+      <%= phone.number %>
+      <a href="/contacts/<%= @contact.id %>/phones/<%= phone.id %>/edit">Edit</a>
+      <a href="/contacts/<%= @contact.id %>/phones/<%= phone.id %>"
+         data-confirm="You sure?"
+         data-method="delete"
+         rel="nofollow">Delete</a>
+    </li>
+  <% end %>
+</ul>
+<a href="/contacts/<%= @contact.id %>/phones/new">Add phone</a>
+
+<p><a href="/contacts">Return to the contact listing</a></p>

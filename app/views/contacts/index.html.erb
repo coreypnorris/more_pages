@@ -1,0 +1,24 @@
+<h1>Contacts</h1>
+
+<ul>
+  <% @contacts.each do |contact| %>
+    <li><a href="/contacts/<%= contact.id %>"><%= contact.name %></a></li>
+    <% end %>
+</ul>
+
+<h2>New contact</h2>
+
+<% if @contact.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @contact.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/contacts" method="post">
+  <label for="contact_name">Name</label>
+  <input id="contact_name" name="contact[name]" type="text" value="<%= @contact.name %>">
+  <button>Create Contact</button>
+</form>
