@@ -29,4 +29,11 @@ class PhonesController < ApplicationController
       render('phones/edit.html.erb')
     end
   end
+
+  def destroy
+    @contact = Contact.find(params[:contact_id])
+    @phone = Phone.find(params[:id])
+    @phone.destroy
+    render('phones/destroy.html.erb')
+  end
 end
