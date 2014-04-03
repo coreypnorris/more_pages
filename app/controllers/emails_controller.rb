@@ -10,7 +10,7 @@ class EmailsController < ApplicationController
     @email = Email.create(:address => params[:address],
                           :contact_id => params[:contact_id])
     if @email.save
-      render('emails/success.html.erb')
+      redirect_to("/contacts/#{@contact.id}")
     else
       render('emails/new.html.erb')
     end
@@ -24,7 +24,7 @@ class EmailsController < ApplicationController
   def update
     @email = Email.find(params[:id])
     if @email.update(params[:email])
-      render('emails/success.html.erb')
+      redirect_to("/contacts/#{@contact.id}")
     else
       render('emails/edit.html.erb')
     end
@@ -34,6 +34,6 @@ class EmailsController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @email = Email.find(params[:id])
     @email.destroy
-    render('emails/destroy.html.erb')
+    redirect_to("/contacts/#{@contact.id}")
   end
 end
