@@ -10,6 +10,7 @@ class PhonesController < ApplicationController
     @phone = Phone.create(:number => params[:number],
                           :contact_id => params[:contact_id])
     if @phone.save
+      flash[:notice] = "Your phone number was successfully added."
       redirect_to("/contacts/#{@contact.id}")
     else
       render('phones/new.html.erb')
@@ -25,6 +26,7 @@ class PhonesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @phone = Phone.find(params[:id])
     if @phone.update(params[:phone])
+      flash[:notice] = "Your phone number was successfully edited."
       redirect_to("/contacts/#{@contact.id}")
     else
       render('phones/edit.html.erb')
@@ -35,6 +37,7 @@ class PhonesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @phone = Phone.find(params[:id])
     @phone.destroy
+    flash[:notice] = "Your phone number was successfully destroyed."
     redirect_to("/contacts/#{@contact.id}")
   end
 end
