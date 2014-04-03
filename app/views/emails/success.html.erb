@@ -1,5 +1,9 @@
 <h1>Email address saved!</h1>
 
+<% content_for(:title) do %>
+   Success!
+<% end %>
+
 <p>Email address was successfully saved.</p>
 
 <p><a href="/contacts/<%= @email.contact.id %>">View <%= @email.contact.name %></a></p>

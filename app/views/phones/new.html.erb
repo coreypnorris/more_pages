@@ -1,5 +1,9 @@
 <h1>New phone number for <%= @phone.contact.name %></h1>
 
+<% content_for(:title) do %>
+   New phone number for <%= @phone.contact.name %>
+<% end %>
+
 <% if @phone.errors.any? %>
   <h3>Please fix these errors:</h3>
   <ul>

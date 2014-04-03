@@ -22,6 +22,7 @@ class EmailsController < ApplicationController
   end
 
   def update
+    @contact = Contact.find(params[:contact_id])
     @email = Email.find(params[:id])
     if @email.update(params[:email])
       redirect_to("/contacts/#{@contact.id}")

@@ -1,5 +1,9 @@
 <h1>Edit email address</h1>
 
+<% content_for(:title) do %>
+   Edit Email Address
+<% end %>
+
 <% if @email.errors.any? %>
   <h3>Please fix these errors:</h3>
   <ul>

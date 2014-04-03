@@ -1,5 +1,9 @@
 <h1>Phone number saved!</h1>
 
+<% content_for(:title) do %>
+   Success!
+<% end %>
+
 <p>Phone number was successfully saved.</p>
 
 <p><a href="/contacts/<%= @phone.contact.id %>">View <%= @phone.contact.name %></a></p>

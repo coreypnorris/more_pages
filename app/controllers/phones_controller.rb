@@ -22,6 +22,7 @@ class PhonesController < ApplicationController
   end
 
   def update
+    @contact = Contact.find(params[:contact_id])
     @phone = Phone.find(params[:id])
     if @phone.update(params[:phone])
       redirect_to("/contacts/#{@contact.id}")
