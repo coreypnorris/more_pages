@@ -1,5 +1,10 @@
 <h1><%= @contact.name %></h1>
 
+<% content_for(:title) do %>
+   <%= @contact.name %>
+<% end %>
+
+
 <p>Phone numbers:</p>
 
 <ul>
