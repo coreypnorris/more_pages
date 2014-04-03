@@ -22,7 +22,6 @@
 <% end %>
 
 <form action="/contacts" method="post">
-  <label for="contact_name">Name</label>
-  <input id="contact_name" name="contact[name]" type="text" value="<%= @contact.name %>">
+  <%= render('form') %>
   <button>Create Contact</button>
 </form>
